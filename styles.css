@@ -327,6 +327,7 @@ a {
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s ease;
+    min-height: 350px;
 }
 
 .listing-card:hover {
@@ -336,10 +337,11 @@ a {
 
 .listing-card .listing-image {
     width: 100%;
-    min-height: 250px;
+    height: 250px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #e5e7eb;
 }
 
 .listing-details {

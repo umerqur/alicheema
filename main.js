@@ -34,9 +34,15 @@ const listingsData = [
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Ali Cheema Real Estate Landing Page - Initialized');
+    console.log('Listings data loaded:', listingsData.length, 'listings');
 
     // Render featured listings dynamically
-    renderListings();
+    try {
+        renderListings();
+        console.log('Listings rendered successfully');
+    } catch (error) {
+        console.error('Error rendering listings:', error);
+    }
 
     // Smooth scrolling for anchor links (if added later)
     initSmoothScroll();
