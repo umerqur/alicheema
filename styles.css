@@ -150,21 +150,34 @@ a {
     gap: var(--spacing-sm);
 }
 
-.logo {
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-text {
     display: flex;
     flex-direction: column;
+    line-height: 1.1;
 }
 
-.agent-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--dark-grey);
+.brand-text .agent-name {
+    font-weight: 600;
+    font-size: 1rem;
 }
 
-.brokerage-name {
-    font-size: 0.875rem;
+.brand-text .brokerage-name {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: var(--text-grey);
-    font-weight: 400;
 }
 
 .header-cta .phone-link {
@@ -188,6 +201,25 @@ a {
 .phone-icon {
     width: 20px;
     height: 20px;
+}
+
+/* Mobile responsive styles for header */
+@media (max-width: 767px) {
+    .brand-logo {
+        height: 24px;
+    }
+
+    .brand-text .agent-name {
+        font-size: 0.875rem;
+    }
+
+    .brand-text .brokerage-name {
+        font-size: 0.6rem;
+    }
+
+    .header-brand {
+        gap: 8px;
+    }
 }
 
 /* ===================================
