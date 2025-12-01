@@ -157,7 +157,7 @@ a {
 }
 
 .brand-logo {
-    height: 32px;
+    height: 36px;
     width: auto;
     object-fit: contain;
 }
@@ -205,10 +205,6 @@ a {
 
 /* Mobile responsive styles for header */
 @media (max-width: 767px) {
-    .brand-logo {
-        height: 24px;
-    }
-
     .brand-text .agent-name {
         font-size: 0.875rem;
     }
@@ -219,6 +215,12 @@ a {
 
     .header-brand {
         gap: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .brand-logo {
+        height: 28px;
     }
 }
 
