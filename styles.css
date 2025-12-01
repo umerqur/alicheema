@@ -291,12 +291,11 @@ a {
 }
 
 .hero-media {
-    flex: 1.5;
+    flex: 1.7;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-    border-radius: 6px;
+    border-radius: 10px;
 }
 
 .hero-media-img {
@@ -305,7 +304,7 @@ a {
     object-fit: cover;
     object-position: center right;
     display: block;
-    border-radius: 6px;
+    border-radius: 10px;
 }
 
 /* Mobile responsive for hero */
