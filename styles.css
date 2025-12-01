@@ -134,7 +134,7 @@ a {
 
 .top-header {
     background-color: var(--white);
-    padding: 1rem 0;
+    padding: 1.25rem 0;
     border-bottom: 1px solid var(--border-grey);
     position: sticky;
     top: 0;
@@ -147,17 +147,17 @@ a {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
 }
 
 .header-brand {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
 .brand-logo {
-    height: 36px;
+    height: 44px;
     width: auto;
     object-fit: contain;
 }
@@ -170,7 +170,7 @@ a {
 
 .brand-text .agent-name {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.125rem;
 }
 
 .brand-text .brokerage-name {
@@ -206,21 +206,29 @@ a {
 /* Mobile responsive styles for header */
 @media (max-width: 767px) {
     .brand-text .agent-name {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
 
     .brand-text .brokerage-name {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
     }
 
     .header-brand {
-        gap: 8px;
+        gap: 12px;
+    }
+
+    .brand-logo {
+        height: 38px;
     }
 }
 
 @media (max-width: 600px) {
     .brand-logo {
-        height: 28px;
+        height: 34px;
+    }
+
+    .brand-text .agent-name {
+        font-size: 0.95rem;
     }
 }
 
@@ -229,18 +237,23 @@ a {
    =================================== */
 
 .hero {
-    background-color: var(--light-grey);
-    padding: var(--spacing-2xl) 0;
+    background-color: #f7f7f7;
+    padding: 0;
+    overflow: hidden;
 }
 
 .hero .container {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: 0;
+    max-width: 100%;
+    padding: 0;
 }
 
 .hero-content {
     text-align: center;
+    padding: var(--spacing-2xl) var(--container-padding);
+    background-color: #f7f7f7;
 }
 
 .hero-title {
@@ -264,12 +277,10 @@ a {
 }
 
 .hero-media {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    max-width: 540px;
-    margin-left: auto;
     width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
 }
 
 .hero-photo {
@@ -277,6 +288,7 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center right;
 }
 
 .placeholder-image {
@@ -658,14 +670,7 @@ a {
 
 @media (max-width: 1023px) {
     .hero-media {
-        max-width: 100%;
-        margin: 0 auto;
         height: 400px;
-    }
-
-    .hero-photo {
-        height: 100%;
-        object-fit: cover;
     }
 }
 
@@ -725,16 +730,28 @@ a {
 
     .hero .container {
         flex-direction: row;
-        align-items: center;
+        align-items: stretch;
+        min-height: 600px;
     }
 
     .hero-content {
-        flex: 1;
+        flex: 0 0 50%;
+        width: 50%;
         text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--spacing-2xl);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: 0;
     }
 
     .hero-media {
-        flex: 1;
+        flex: 0 0 50%;
+        width: 50%;
+        height: auto;
+        min-height: 600px;
     }
 
     .hero-cta {
