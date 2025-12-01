@@ -254,23 +254,20 @@ a {
    =================================== */
 
 .hero {
-    background-color: #f7f7f7;
-    padding: 0;
-    overflow: hidden;
+    background: #f7f7f7;
 }
 
-.hero .container {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+.hero-inner {
     max-width: 1400px;
-    padding: 0;
+    margin: 0 auto;
+    padding: 80px 40px;
+    display: flex;
+    gap: 48px;
+    align-items: center;
 }
 
 .hero-content {
-    text-align: center;
-    padding: var(--spacing-2xl) var(--container-padding);
-    background-color: #f7f7f7;
+    flex: 1;
 }
 
 .hero-title {
@@ -290,34 +287,57 @@ a {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
-    align-items: center;
+    align-items: flex-start;
 }
 
 .hero-media {
-    width: 100%;
-    height: 600px;
-    overflow: hidden;
-    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero-media::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(to left, transparent 60%, #f7f7f7 100%);
-    z-index: 1;
-    pointer-events: none;
+.hero-media-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero-photo {
+.hero-media-img {
     display: block;
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    height: auto;
     object-fit: cover;
-    object-position: center right;
+    object-position: center;
+    border-radius: 18px;
+}
+
+/* Mobile responsive for hero */
+@media (max-width: 900px) {
+    .hero-inner {
+        flex-direction: column;
+        padding: 48px 20px;
+    }
+
+    .hero-media {
+        width: 100%;
+    }
+
+    .hero-media-card {
+        width: 100%;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-cta {
+        align-items: center;
+    }
 }
 
 .placeholder-image {
@@ -694,24 +714,8 @@ a {
 }
 
 /* ===================================
-   Mobile & Tablet - Hero Photo
+   Mobile & Tablet - Hero Photo (REMOVED - using simplified card layout)
    =================================== */
-
-@media (max-width: 1023px) {
-    .hero-media {
-        height: 500px;
-    }
-
-    .hero-media::before {
-        background: linear-gradient(to top, transparent 70%, #f7f7f7 100%);
-    }
-}
-
-@media (max-width: 767px) {
-    .hero-media {
-        height: 450px;
-    }
-}
 
 /* ===================================
    Tablet Breakpoint (768px+)
@@ -767,38 +771,6 @@ a {
         --container-padding: 2rem;
     }
 
-    .hero .container {
-        flex-direction: row;
-        align-items: stretch;
-        min-height: 700px;
-    }
-
-    .hero-content {
-        flex: 0 0 50%;
-        width: 50%;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: var(--spacing-2xl) var(--spacing-2xl) var(--spacing-2xl) var(--container-padding);
-        background-color: #f7f7f7;
-    }
-
-    .hero-media {
-        flex: 0 0 50%;
-        width: 50%;
-        height: auto;
-        min-height: 700px;
-    }
-
-    .hero-media::before {
-        background: linear-gradient(to left, transparent 50%, #f7f7f7 100%);
-    }
-
-    .hero-cta {
-        justify-content: flex-start;
-    }
-
     .listings-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -815,14 +787,6 @@ a {
 @media (min-width: 1280px) {
     .hero-title {
         font-size: 4rem;
-    }
-
-    .hero .container {
-        min-height: 750px;
-    }
-
-    .hero-media {
-        min-height: 750px;
     }
 
     .placeholder-image {
