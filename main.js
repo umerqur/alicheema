@@ -3,9 +3,40 @@
  * Main JavaScript file
  */
 
+// Listing data
+const listingsData = [
+    {
+        price: '$1,299,000',
+        address: '123 Maple Street, Oakville',
+        beds: 4,
+        baths: 3,
+        sqft: '2,400',
+        imageUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop&q=80'
+    },
+    {
+        price: '$1,549,000',
+        address: '456 Oak Avenue, Oakville',
+        beds: 5,
+        baths: 4,
+        sqft: '3,200',
+        imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&q=80'
+    },
+    {
+        price: '$989,000',
+        address: '789 Birch Lane, Oakville',
+        beds: 3,
+        baths: 2,
+        sqft: '1,850',
+        imageUrl: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop&q=80'
+    }
+];
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Ali Cheema Real Estate Landing Page - Initialized');
+
+    // Render featured listings dynamically
+    renderListings();
 
     // Smooth scrolling for anchor links (if added later)
     initSmoothScroll();
@@ -16,6 +47,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track page visibility for analytics (placeholder)
     trackPageVisibility();
 });
+
+/**
+ * Render featured listings dynamically
+ */
+function renderListings() {
+    const listingsGrid = document.querySelector('.listings-grid');
+
+    if (!listingsGrid) {
+        console.error('Listings grid container not found');
+        return;
+    }
+
+    // Clear existing content
+    listingsGrid.innerHTML = '';
+
+    // Create and append listing cards
+    listingsData.forEach(listing => {
+        const listingCard = createListingCard(listing);
+        listingsGrid.appendChild(listingCard);
+    });
+
+    console.log(`Rendered ${listingsData.length} listings`);
+}
+
+/**
+ * Create a listing card element from listing data
+ */
+function createListingCard(listing) {
+    const card = document.createElement('div');
+    card.className = 'listing-card';
+
+    card.innerHTML = `
+        <div class="listing-image" style="background-image: url('${listing.imageUrl}')"></div>
+        <div class="listing-details">
+            <div class="listing-price">${listing.price}</div>
+            <div class="listing-address">${listing.address}</div>
+            <div class="listing-specs">
+                <span>${listing.beds} Beds</span>
+                <span>${listing.baths} Baths</span>
+                <span>${listing.sqft} sqft</span>
+            </div>
+        </div>
+    `;
+
+    return card;
+}
 
 /**
  * Initialize smooth scrolling for anchor links
