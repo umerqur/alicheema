@@ -1,246 +1,665 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ali Cheema - Your trusted real estate agent in Oakville. Expert guidance for buying and selling homes with Royal LePage.">
-    <title>Ali Cheema - Oakville Real Estate Agent | Royal LePage</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sherlase Clinic & Spa – Markham's Premier Spa for Women | RMT Massage & Facials</title>
+  <meta name="description" content="Luxury spa treatments in Markham without downtown prices. RMT massage (insurance accepted), custom facials. 25+ years serving Markham women. Book today!">
+  
+  <meta property="og:title" content="Sherlase Clinic & Spa – Premium Spa in Markham">
+  <meta property="og:description" content="High-end spa treatments without downtown prices. RMT massage and facials. 25+ years serving Markham.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sherlase-spa.netlify.app/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png">
+  
+  <!-- Google tag (gtag.js) for Google Ads only -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17719269754"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Google Ads only
+    gtag('config', 'AW-17719269754');
+
+    // helper to fire a click conversion then continue navigation
+    function sendConversion(sendTo, url, value) {
+      var cb = function() { if (url) window.location = url; };
+      gtag('event', 'conversion', {
+        'send_to': sendTo,
+        'value': value || 10.0,
+        'currency': 'CAD',
+        'event_callback': cb
+      });
+      return false;
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --brand: #7b1d3b;
+      --brand-hover: #60142c;
+      --brand-2: #a13a5a;
+      --text-main: #2c2c2c;
+      --text-muted: #666;
+      --bg-body: #ffffff;
+      --bg-surface: #ffffff;
+      --bg-alt: #fdf8f9;
+      --border-radius: 16px;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 10px 15px -3px rgba(123, 29, 59, 0.08), 0 4px 6px -2px rgba(123, 29, 59, 0.04);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      background: var(--bg-body);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { color: var(--brand); letter-spacing: -0.02em; line-height: 1.2; }
+    
+    a { text-decoration: none; color: inherit; transition: color 0.2s; }
+    img { max-width: 100%; height: auto; display: block; }
+    
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    section { padding: 60px 0; }
+    
+    /* Top Banner */
+    .urgent-banner {
+      background: linear-gradient(90deg, #5e132b 0%, var(--brand) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 12px 0;
+      transition: all 0.3s ease;
+    }
+    .topbar .row { display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 45px; width: auto; }
+    .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--brand); display: none; }
+    .logo-text span { font-weight: 400; font-size: 0.8rem; display: block; color: var(--brand-2); }
+
+    /* Buttons */
+    .cta-btn {
+      background: var(--brand);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(123, 29, 59, 0.3);
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      text-align: center;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      background: var(--brand-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(123, 29, 59, 0.4);
+    }
+    .cta-btn-secondary {
+      background: transparent;
+      color: var(--brand);
+      border: 2px solid var(--brand);
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .cta-btn-secondary:hover { background: var(--bg-alt); }
+
+    /* Hero Section */
+    .hero {
+      padding: 40px 0 60px;
+      background: radial-gradient(circle at top center, #fffbfb 0%, #fff 100%);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--brand) 0%, #a13a5a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Slider styling */
+    .slider-container {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      position: relative;
+    }
+    .slider {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      background: #000;
+      box-shadow: var(--shadow-lg);
+      transform: translateZ(0); /* Hardware accel */
+    }
+    .slides { position: relative; width: 100%; height: 0; padding-top: 56.25%; } /* 16:9 Aspect Ratio */
+    .slide {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0;
+      transition: opacity 1.2s ease, transform 8s ease;
+      background-size: cover;
+      background-position: center;
+    }
+    .slide.active { opacity: 1; transform: scale(1.05); }
+
+    /* Hours Badge */
+    .hours-badge {
+      display: inline-block;
+      background: #fff;
+      padding: 10px 24px;
+      border-radius: 50px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.05);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .hours-badge strong { color: var(--brand); }
+
+    /* KPIs */
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .kpi {
+      background: #fff;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: transform 0.2s;
+    }
+    .kpi:hover { transform: translateY(-3px); }
+    .kpi strong { display: block; font-size: 1.25rem; color: var(--brand); margin-bottom: 4px; font-weight: 700; }
+    .kpi span { font-size: 0.9rem; color: var(--text-muted); }
+
+    .trust-bar {
+      margin-top: 24px;
+      background: rgba(123, 29, 59, 0.04);
+      border: 1px dashed var(--brand);
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--brand);
+    }
+
+    /* Content Cards & Offers */
+    .features { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
+    
+    .card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s;
+    }
+    .card:hover { box-shadow: var(--shadow-md); }
+    .card h3 { font-size: 1.25rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700; }
+    
+    .offer {
+      border: 1px solid rgba(123, 29, 59, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .offer .badge {
+      position: absolute;
+      top: 0; right: 0;
+      background: var(--brand);
+      color: #fff;
+      padding: 6px 16px;
+      border-bottom-left-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .offer .price {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--brand);
+      margin: 16px 0;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    /* Booking Form */
+    .booking-section { background: var(--bg-alt); }
+    .booking-container {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .booking-steps {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+    .booking-steps h3 { font-size: 1rem; margin-bottom: 8px; }
+    .booking-steps ol { padding-left: 20px; margin: 0; font-size: 0.95rem; color: var(--text-muted); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      background: #fdfdfd;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(123, 29, 59, 0.1);
+    }
+    .submit-btn { width: 100%; font-size: 1.1rem; padding: 18px; }
+
+    /* Testimonials */
+    .testimonial {
+      background: #fff;
+      position: relative;
+    }
+    .stars { color: #fbbf24; margin-bottom: 12px; font-size: 1rem; }
+    .testimonial p { font-style: italic; color: #444; margin-bottom: 16px; }
+    .testimonial .author { font-weight: 700; color: var(--brand); font-style: normal; }
+    .testimonial .verified { font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 4px; }
+    
+    /* FAQ */
+    .faq-item {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: #ddd; }
+    .faq-item h4 { color: var(--text-main); font-weight: 700; margin-bottom: 8px; }
+    .faq-item p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+
+    /* Footer */
+    footer { background: #111; color: #888; padding: 40px 0; font-size: 0.9rem; }
+    footer a { color: #fff; text-decoration: underline; }
+
+    /* Media Queries */
+    @media (min-width: 768px) {
+      .kpis { grid-template-columns: repeat(4, 1fr); }
+      .features { grid-template-columns: repeat(2, 1fr); }
+      .features.three-col { grid-template-columns: repeat(3, 1fr); }
+      .booking-container { padding: 48px; }
+      .topbar { padding: 16px 0; }
+    }
+
+    @media (max-width: 767px) {
+      .cta-btn { width: 100%; margin-top: 10px; }
+      .row { flex-direction: column; text-align: center; gap: 10px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .hero { padding-top: 20px; }
+      h1 { font-size: 2.2rem; }
+      .offer .price { font-size: 2.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Top Header Bar -->
-    <header class="top-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-brand">
-                    <img src="lepage.png" alt="Royal LePage" class="brand-logo" />
-                    <div class="brand-text">
-                        <span class="agent-name">Ali Cheema</span>
-                    </div>
-                </div>
-                <div class="header-cta">
-                    <a href="tel:+16479952541" class="phone-link">
-                        <svg class="phone-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        Call Now
-                    </a>
-                </div>
-            </div>
+  
+  <div class="urgent-banner">Markham's Premium Spa | Free Parking | Insurance Accepted</div>
+  
+  <header class="topbar">
+    <div class="container row">
+      <div class="logo-container">
+        <!-- Logo Image -->
+        <img src="https://raw.githubusercontent.com/umerqur/sherlase-spa/main/logo_sheri.png" alt="Sherlase Clinic & Spa" class="logo-img" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'" />
+        <!-- Fallback Text Logo -->
+        <div class="logo-text">SHERLASE<span>Clinic & Spa</span></div>
+      </div>
+      <a href="tel:+19052018005" class="cta-btn" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">Call (905) 201-8005</a>
+    </div>
+  </header>
+  
+  <div class="hero">
+    <div class="container">
+      <h1>Markham's Premier Spa for Women</h1>
+      
+      <!-- SLIDER SECTION -->
+      <div class="slider-container">
+        <div class="slider">
+          <div class="slides">
+            <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa1.png');"></div>
+            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png');"></div>
+            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa3.png');"></div>
+            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa4.png');"></div>
+            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa5.png');"></div>
+          </div>
         </div>
-    </header>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-inner">
-            <div class="hero-content">
-                <h1 class="hero-title">Find Your Dream Home in Oakville</h1>
-                <p class="hero-subtitle">Expert local guidance to help you buy or sell with confidence. Over 15 years of proven results in Oakville real estate.</p>
-                <div class="hero-cta">
-                    <a href="#evaluationFormSection" class="btn btn-primary btn-large">Get Your Free Home Evaluation</a>
-                </div>
-            </div>
-            <div class="hero-media">
-                <img src="ali-cheema.jpg"
-                     alt="Ali Cheema"
-                     class="hero-media-img">
-            </div>
+      <div class="hours-badge">
+        <strong>Closed Sunday & Monday.</strong> Booking requests answered during working hours.
+      </div>
+      
+      <div class="kpis">
+        <div class="kpi"><strong>25+ Years</strong><span>Trusted in Markham</span></div>
+        <div class="kpi"><strong>RMT Certified</strong><span>Insurance Receipts</span></div>
+        <div class="kpi"><strong>Women-Focused</strong><span>Safe Environment</span></div>
+        <div class="kpi"><strong>Free Parking</strong><span>Stress-Free</span></div>
+      </div>
+      
+      <div class="trust-bar">
+        <strong>Direct Billing Info:</strong> RMT Massage is covered by most Extended Health Insurance plans.
+      </div>
+    </div>
+  </div>
+  
+  <section style="background: var(--brand); color: #fff;">
+    <div class="container" style="text-align:center; max-width:800px;">
+      <h2 style="color:#fff; margin-bottom:20px;">Experience you can trust</h2>
+      <p style="font-size:1.15rem; opacity:0.9;">With over 25 years serving Markham and an on-site cosmetic physician, Sherlase Clinic & Spa offers both relaxing spa treatments and advanced aesthetic services. From custom facials to therapeutic massage, we focus on making every visit feel special.</p>
+    </div>
+  </section>
+  
+  <section style="background: var(--bg-alt);">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:8px;">Special Introductory Offers</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:32px;">Limited time pricing for new spa clients</p>
+      
+      <div class="features">
+        <!-- Offer 1 -->
+        <div class="card offer">
+          <div class="badge">Most Popular</div>
+          <h3>Sherlase Signature Facial</h3>
+          <div class="price">$89</div>
+          <p>A luxurious 50-minute anti-aging facial using premium products. Address your skin concerns, relax, and be pampered with a treatment you won't want to end.</p>
+          <p style="font-size:0.85rem; color:#999; margin-top:auto; padding-top:16px;">*Taxes & gratuities extra. One per person.</p>
+          <a href="https://buy.stripe.com/6oU8wP9EZcU39xhdfAbEA00" class="cta-btn" style="margin-top:20px; width:100%;" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">Secure Deal Now</a>
         </div>
-    </section>
-
-    <!-- Trust Strip -->
-    <section class="trust-strip">
-        <div class="container">
-            <div class="trust-items">
-                <div class="trust-item">
-                    <div class="trust-number">250+</div>
-                    <div class="trust-label">Homes Sold</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-number">15+</div>
-                    <div class="trust-label">Years Experience</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-number">98%</div>
-                    <div class="trust-label">Client Satisfaction</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-number">24/7</div>
-                    <div class="trust-label">Available Support</div>
-                </div>
-            </div>
+        
+        <!-- Offer 2 -->
+        <div class="card offer">
+          <div class="badge">New Clients Only</div>
+          <h3>RMT Massage (60 min)</h3>
+          <div class="price">$99</div>
+          <p>Release tightness, aches, and pains. Restores the body's natural flow. Performed by female RMT therapists on specialized beds designed for maximum comfort.</p>
+          <p style="font-size:0.85rem; color:#999; margin-top:auto; padding-top:16px;">*Taxes & gratuities extra. Receipts provided.</p>
+          <a href="https://buy.stripe.com/5kQfZh7wR4nxdNx1wSbEA01" class="cta-btn" style="margin-top:20px; width:100%;" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">Secure Deal Now</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
+  
+  <section id="booking-form" class="booking-section">
+    <div class="container">
+      <div class="booking-container">
+        <h2 style="text-align:center; margin-bottom:12px;">Request Your Appointment</h2>
+        <p style="text-align:center; color:var(--text-muted); margin-bottom:32px;">We will contact you within 24 hours to confirm the time.</p>
 
-    <!-- Featured Listings Section -->
-    <section class="featured-listings">
-        <div class="container">
-            <h2 class="section-title">Featured Oakville Listings</h2>
-            <p class="section-subtitle">Handpicked properties in Oakville's most desirable neighbourhoods</p>
-
-            <div class="listings-grid">
-                <!-- Listings will be dynamically rendered by JavaScript -->
-            </div>
-
-            <div class="section-cta">
-                <button class="btn btn-primary">View All Available Homes</button>
-            </div>
+        <div class="booking-steps">
+          <h3>📅 How booking works</h3>
+          <ol>
+            <li>Submit this request form</li>
+            <li>We confirm availability via phone/email</li>
+            <li>We send a secure link for payment</li>
+            <li>Relax, you are booked!</li>
+          </ol>
         </div>
-    </section>
-
-    <!-- How I Help Buyers Section -->
-    <section class="help-buyers">
-        <div class="container">
-            <h2 class="section-title">How I Help Buyers Find the Perfect Home</h2>
-            <p class="section-subtitle">A proven process that puts your needs first</p>
-
-            <div class="help-grid">
-                <div class="help-item">
-                    <div class="help-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </div>
-                    <h3 class="help-title">Local Market Expertise</h3>
-                    <p class="help-description">Deep knowledge of Oakville neighbourhoods, schools, and market trends to guide your decision.</p>
-                </div>
-
-                <div class="help-item">
-                    <div class="help-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <h3 class="help-title">First Access to Listings</h3>
-                    <p class="help-description">Get notified about new properties before they hit the public market.</p>
-                </div>
-
-                <div class="help-item">
-                    <div class="help-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </div>
-                    <h3 class="help-title">Skilled Negotiation</h3>
-                    <p class="help-description">Expert negotiation to get you the best price and terms on your dream home.</p>
-                </div>
-
-                <div class="help-item">
-                    <div class="help-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </div>
-                    <h3 class="help-title">Full-Service Support</h3>
-                    <p class="help-description">From mortgage pre-approval to closing day, I handle every detail for a stress-free experience.</p>
-                </div>
+        
+        <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+          <input type="hidden" name="form-name" value="booking" />
+          <p style="display:none"><label>Do not fill: <input name="bot-field" /></label></p>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required>
             </div>
-        </div>
-    </section>
-
-    <!-- Secondary Call Section -->
-    <section class="secondary-call">
-        <div class="container">
-            <div class="call-content">
-                <h2 class="call-title">Ready to Start Your Home Search?</h2>
-                <p class="call-subtitle">Let's discuss your needs and find the perfect Oakville property for you and your family.</p>
-                <div class="call-cta">
-                    <button class="btn btn-primary btn-large">Schedule a Free Consultation</button>
-                    <p class="call-note">No obligation • Personalized advice • Local expertise</p>
-                </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required>
             </div>
-        </div>
-    </section>
-
-    <!-- Seller Teaser Section -->
-    <section id="evaluationFormSection" class="seller-teaser">
-        <div class="container">
-            <div class="teaser-content">
-                <div class="teaser-text">
-                    <h2 class="section-title">Thinking of Selling Your Oakville Home?</h2>
-                    <p class="teaser-description">Get a free, no-obligation market evaluation and discover what your home is worth in today's market. I'll provide a detailed analysis and a proven marketing plan to sell your home for top dollar.</p>
-                    <ul class="teaser-benefits">
-                        <li>Free professional home evaluation</li>
-                        <li>Comprehensive market analysis</li>
-                        <li>Proven marketing strategy</li>
-                        <li>Expert pricing guidance</li>
-                    </ul>
-                </div>
-                <div class="teaser-form">
-                    <form class="evaluation-form">
-                        <h3 class="form-title">Get your free Oakville home evaluation</h3>
-
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Phone" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="address" name="address" placeholder="Property address" required>
-                        </div>
-
-                        <div class="form-group">
-                            <select id="timeline" name="timeline" required>
-                                <option value="" disabled selected>Timeline to sell</option>
-                                <option value="asap">As soon as possible</option>
-                                <option value="1-3months">1-3 months</option>
-                                <option value="3-6months">3-6 months</option>
-                                <option value="6plus">6+ months / Just exploring</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-submit">Get my evaluation</button>
-
-                        <p class="form-disclaimer">No spam. I will contact you personally.</p>
-                    </form>
-                </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(905) 555-0123">
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-main">
-                    <div class="footer-brand">
-                        <h3>Ali Cheema</h3>
-                        <p class="footer-title">Real Estate Sales Representative</p>
-                    </div>
-                    <div class="footer-contact">
-                        <p><strong>Phone:</strong> <a href="tel:+16479952541">+1 647 995 2541</a></p>
-                        <p><strong>Email:</strong> <a href="mailto:ali@example.com">ali@example.com</a></p>
-                        <p><strong>Service Area:</strong> Oakville & Surrounding Areas</p>
-                    </div>
-                </div>
-
-                <div class="footer-brokerage">
-                    <p class="brokerage-text">Royal LePage Real Estate Services Ltd., Brokerage</p>
-                    <p class="brokerage-text">Independently Owned and Operated</p>
-                </div>
-
-                <div class="footer-legal">
-                    <p>&copy; 2024 Ali Cheema. All rights reserved.</p>
-                    <p class="legal-note">All information displayed is believed to be accurate but is not guaranteed and should be independently verified. Properties may be listed by other brokerages.</p>
-                </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
             </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Select Service *</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service...</option>
+              <option value="Sherlase Signature Facial - $89">Sherlase Signature Facial - $89</option>
+              <option value="RMT Massage (60 min) - $99">RMT Massage (60 min) - $99</option>
+              <option value="Other / Not Sure">Other / Not Sure</option>
+            </select>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="preferredDate">Preferred Date</label>
+              <input type="date" id="preferredDate" name="preferredDate">
+            </div>
+            <div class="form-group">
+              <label for="preferredTime">Preferred Time</label>
+              <select id="preferredTime" name="preferredTime">
+                <option value="">Any Time</option>
+                <option value="Morning (9am - 12pm)">Morning (9am - 12pm)</option>
+                <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
+                <option value="Evening (4pm - 8pm)">Evening (4pm - 8pm)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Special Requests (Optional)</label>
+            <textarea id="message" name="message" rows="3" placeholder="Any specific concerns, preferences, or questions?"></textarea>
+          </div>
+          
+          <button type="submit" class="cta-btn submit-btn">Submit Booking Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:40px;">Why Markham Women Choose Sherlase</h2>
+      
+      <div class="features three-col">
+        <div class="card">
+          <div style="font-size:2rem; margin-bottom:12px;">🚗</div>
+          <h3>No Downtown Hassle</h3>
+          <p style="color:var(--text-muted)">Skip the traffic and parking fees. Enjoy premium spa treatments right here in Markham with ample free parking.</p>
         </div>
-    </footer>
+        
+        <div class="card">
+          <div style="font-size:2rem; margin-bottom:12px;">👩‍⚕️</div>
+          <h3>Certified Professionals</h3>
+          <p style="color:var(--text-muted)">Our RMT certified therapists and estheticians combine clinic-grade expertise with the warmth of a spa.</p>
+        </div>
+        
+        <div class="card">
+          <div style="font-size:2rem; margin-bottom:12px;">🌸</div>
+          <h3>Women-Centered Care</h3>
+          <p style="color:var(--text-muted)">A safe, welcoming space designed with women in mind. Personalized attention with every single visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section style="background:var(--bg-alt)">
+    <div class="container">
+      <h2 style="text-align:center;">What Our Clients Say</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:40px;">Real reviews from Google Business</p>
+      
+      <div class="features three-col">
+        <div class="card testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"I had a positive experience. The clinic is calming and peaceful. My facial was excellent and relaxing."</p>
+          <div>
+            <p class="author">Nalini Persaud</p>
+            <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
+          </div>
+        </div>
+        
+        <div class="card testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"I absolutely love this clinic. The staff is sweet, honest and never pushy. The clinic is beautiful and welcoming."</p>
+          <div>
+            <p class="author">Freada V.</p>
+            <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
+          </div>
+        </div>
+        
+        <div class="card testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"Such a relaxing experience celebrating my cousin's birthday. The staff made us feel VIP. A hidden gem."</p>
+          <div>
+            <p class="author">Gabby Cripouris</p>
+            <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <div class="container">
+      <h2 style="margin-bottom:32px;">Frequently Asked Questions</h2>
+      
+      <div style="max-width:800px;">
+        <div class="faq-item">
+          <h4>Do you accept walk-ins?</h4>
+          <p>We recommend booking in advance to ensure availability, but we do our best to accommodate walk-ins when possible.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Is parking really free?</h4>
+          <p>Yes. We have ample free parking right at our location, so you never have to worry about meters.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>What payment methods do you accept?</h4>
+          <p>We accept Cash, Debit, Visa, Mastercard, and American Express.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>What is your cancellation policy?</h4>
+          <p>We respectfully request 24 hours notice for cancellations or rescheduling.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Do you provide direct billing for RMT?</h4>
+          <p>We provide official RMT receipts that you can submit to your insurance company for reimbursement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section style="background:linear-gradient(135deg, #7b1d3b 0%, #3e0c1b 100%); color:#fff; padding:80px 0; text-align:center;">
+    <div class="container">
+      <h2 style="color:#fff; margin-bottom:16px;">Ready to Relax?</h2>
+      <p style="font-size:1.2rem; opacity:0.9; margin-bottom:40px;">Markham's premier spa experience is just a call away.</p>
+      
+      <div class="features" style="text-align:left; max-width:800px; margin:0 auto 40px;">
+        <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
+          <h3 style="color:#fff; font-size:1.1rem; margin-bottom:12px;">Contact Info</h3>
+          <p style="margin-bottom:8px;"><strong>Phone:</strong> <a href="tel:+19052018005" style="text-decoration:underline;">(905) 201-8005</a></p>
+          <p style="margin-bottom:8px;"><strong>Email:</strong> info@sherlaseclinic.com</p>
+          <p><strong>Address:</strong> 383 Main Street Markham N #7, Markham, ON L3P 1Z3</p>
+        </div>
+        
+        <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
+          <h3 style="color:#fff; font-size:1.1rem; margin-bottom:12px;">Opening Hours</h3>
+          <p style="margin-bottom:8px;"><strong>Tue – Fri:</strong> 9:00 AM – 8:00 PM</p>
+          <p style="margin-bottom:8px;"><strong>Saturday:</strong> 9:00 AM – 6:00 PM</p>
+          <p><strong>Sun – Mon:</strong> Closed</p>
+        </div>
+      </div>
+      
+      <a href="tel:+19052018005" class="cta-btn" style="background:#fff; color:var(--brand); font-size:1.1rem; padding:18px 48px;" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">Call to Book Now</a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container" style="text-align:center;">
+      <p>&copy; <span id="year">2025</span> Sherlase Clinic & Spa. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    <script src="main.js"></script>
+    // Slider Logic
+    (function() {
+      var slides = document.querySelectorAll('.slide');
+      if (!slides.length) return;
+      var index = 0;
+      setInterval(function() {
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+      }, 4000);
+    })();
+  </script>
+  
 </body>
 </html>
